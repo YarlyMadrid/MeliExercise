@@ -26,11 +26,8 @@ class DataCleaner():
 
         self.data_set["listing_type_id_final"] = np.select(condiciones_type, opciones_type, default="Otro")
 
-        # Encode condition variable
-        self.data_set['condition'] = self.data_set['condition'].map({'new': 1, 'used': 0})
-
         # Clean outliers: initial_quantity and condition variables
-        self.data_set = self.data_set[~((self.data_set['initial_quantity'] > 9990) & (self.data_set['condition'] == 0))]
+        self.data_set = self.data_set[~((self.data_set['initial_quantity'] > 9990) & (self.data_set['condition'] == 'used'))]
 
         # Clean outlier: price variable
         self.data_set = self.data_set[self.data_set['price'] < 4000000]
