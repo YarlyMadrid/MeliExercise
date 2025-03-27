@@ -26,6 +26,23 @@ import pandas as pd
 
 from meliexcercise.classes.dataset_builder import DatasetBuilder
 
-ruta = "./data/raw/"
+if __name__ == "__main__":
+    print("Loading dataset...")
+    # Train and test data following sklearn naming conventions
+    # X_train (X_test too) is a list of dicts with information about each item.
+    # y_train (y_test too) contains the labels to be predicted (new or used).
+    # The label of X_train[i] is y_train[i].
+    # The label of X_test[i] is y_test[i].
+    ruta = "C:/Users/ykmi2241/Documents/Proyectos Pycharm/MeliExercise/data/raw/"
+
+    instanciaDataSetBuilder = DatasetBuilder(file_path = ruta)
+
+    X_train, y_train, X_test, y_test = instanciaDataSetBuilder.build_dataset()
+
+    print(X_train)
+
+
+
+
 
 
