@@ -25,6 +25,8 @@ The deliverables are:
 import pandas as pd
 
 from meliexcercise.classes.dataset_builder import DatasetBuilder
+from meliexcercise.classes.model_trainer import ModelTrainer
+from sklearn.metrics import accuracy_score
 
 if __name__ == "__main__":
     print("Loading dataset...")
@@ -39,7 +41,27 @@ if __name__ == "__main__":
 
     X_train, y_train, X_test, y_test = instanciaDataSetBuilder.build_dataset()
 
-    print(X_train)
+    print("Dataset loaded...")
+
+    print("Training Model...")
+
+    instanciaModelTrainer = ModelTrainer(X_train, y_train, X_test, y_test)
+
+    print("Model Trained")
+
+    resultadoModelos = instanciaModelTrainer.initial_train()
+
+    print(resultadoModelos)
+
+    print("Resultado Tuning...")
+
+    resultadoTuning = instanciaModelTrainer.tuning_XGBoost()
+
+    print(resultadoTuning)
+
+    print("Importancia de las variables...")
+
+    instanciaModelTrainer.plot_feature_importance(top_n=15)
 
 
 
