@@ -8,7 +8,7 @@ import pandas as pd
 import warnings
 import seaborn as sns
 import matplotlib.pyplot as plt
-#import plotly.express as px
+import plotly.express as px
 warnings.filterwarnings("ignore")
 pd.set_option("display.max_rows",None)
 from sklearn import preprocessing
@@ -38,4 +38,3 @@ class EDA():
             raise ValueError("Primero debes ejecutar el método 'load' para cargar y limpiar los datos.")
 
         return self.DatosLimpios.describe()
-
