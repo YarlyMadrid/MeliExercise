@@ -61,7 +61,13 @@ if __name__ == "__main__":
 
     print("Importancia de las variables...")
 
-    instanciaModelTrainer.plot_feature_importance(top_n=15)
+    instanciaModelTrainer.plot_feature_importance(top_n=11)
+
+    print("Exportar modelo ...")
+
+    instanciaModelTrainer.export_model_joblib(filename='modelo_xgboost.joblib', output_dir='models')
+
+
 
 
 

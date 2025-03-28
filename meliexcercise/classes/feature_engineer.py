@@ -21,23 +21,22 @@ class FeatureEngineer():
         )
 
         # Create Available Ratio
-        self.data_set['available_ratio'] = self.data_set.apply(
-            lambda x: x['available_quantity'] / x['initial_quantity'] if x['initial_quantity'] > 0 else 0,
-            axis=1
-        )
+        # self.data_set['available_ratio'] = self.data_set.apply(
+        #     lambda x: x['available_quantity'] / x['initial_quantity'] if x['initial_quantity'] > 0 else 0,
+        #     axis=1
+        # )
 
         # Logarithmic transformations
         self.data_set['price_log'] = np.log1p(self.data_set['price'])
-        self.data_set['sold_log'] = np.log1p(self.data_set['sold_quantity'])
+        # self.data_set['sold_log'] = np.log1p(self.data_set['sold_quantity'])
 
-        data_modelo = self.data_set[["condition","price","listing_type_id_final","initial_quantity","sold_quantity",
-                              "available_quantity","sold_ratio","available_ratio","price_log","sold_log",
-                              "count_seller_id"]]
+        data_modelo = self.data_set[["condition","listing_type_id_final","initial_quantity","sold_quantity",
+                                    "available_quantity","sold_ratio","price_log","count_seller_id"]]
 
         # Set numeric columns
-        columnas_numericas = ["price", "initial_quantity", "sold_quantity",
-                              "available_quantity", "sold_ratio", "available_ratio",
-                              "price_log", "sold_log","count_seller_id"]
+        columnas_numericas = ["initial_quantity", "sold_quantity",
+                              "available_quantity", "sold_ratio",
+                              "price_log","count_seller_id"]
 
         # Set categorical columns
         columnas_categoricas = ["listing_type_id_final"]
@@ -69,5 +68,3 @@ class FeatureEngineer():
         data_set_transformado = pd.concat([X_transformado, data_modelo["condition"]], axis=1)
 
         return data_set_transformado
-
-

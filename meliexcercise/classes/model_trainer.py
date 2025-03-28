@@ -12,6 +12,9 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('TkAgg')
 
+import joblib
+import os
+
 class ModelTrainer():
 
     def __init__(self,X_train, y_train, X_test, y_test):
@@ -116,6 +119,15 @@ class ModelTrainer():
         plt.title("Importancia de las variables (top {})".format(top_n))
         plt.tight_layout()
         plt.show()
+
+    def export_model_joblib(self, filename='mejor_modelo.joblib', output_dir='.'):
+        if not hasattr(self, 'best_model'):
+            raise ValueError("Primero debes ejecutar el método 'tuning' para obtener y guardar el mejor modelo.")
+
+        os.makedirs(output_dir, exist_ok=True)
+        filepath = os.path.join(output_dir, filename)
+        joblib.dump(self.best_model, filepath)
+        print(f"Modelo exportado exitosamente como: {filepath}")
 
 
 
