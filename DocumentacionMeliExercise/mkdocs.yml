@@ -1,0 +1,10 @@
+site_name: MELI - Classification
+nav:
+  - Home: index.md
+  - EDA: eda.md
+  - Patrón Arquitectonico: patron.md
+  - Features: features.md
+  - Modelo: modelo.md
+  - Metricas: metricas.md
+  - Conclusiones: conclusiones.md
+
