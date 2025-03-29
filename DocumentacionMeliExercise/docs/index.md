@@ -5,13 +5,13 @@ En el contexto de MercadoLibre Marketplace un algoritmo es necesario para predec
 ## Objetivo
 
 * Predecir si un producto es nuevo o usado en datos tomados por mercado libre en el año 2015 para datos de Argentina
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
 ## Metodología
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* Se diseño un patron de diseño de tipo pipeline y se procedio a entrenar los siguientes modelos:
+  * Logistic Regression 
+  * Random Forest 
+  * Gradient Boosting
+  * XGBoost
+  * LightGBM
+* Finalmente se realizó una optimización de hiperparametros y se exportó el modelo.
