@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>EDA - MELI - Classification</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">MELI - Classification</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">EDA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../patron/" class="nav-link">Patrón Arquitectonico</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../features/" class="nav-link">Features y Modelado</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../metricas/" class="nav-link">Metricas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../conclusiones/" class="nav-link">Conclusiones</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../patron/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#exploracion-de-datos-eda" class="nav-link">Exploración de Datos (EDA)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#analisis-descriptivo" class="nav-link">Análisis descriptivo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="exploracion-de-datos-eda">Exploración de Datos (EDA)</h1>
+<p>Realizar un análisis exploratorio se usa con el objetivo de lograr un entendimiento más amplio del conjunto de datos, y al final se afianzarán los conocimientos detrás de la lógica del negocio; y visto de un punto de vista más técnico ayudará también en la limpieza y la construcción del modelo.
+Para el siguiente análisis exploratorio se tuvieron en cuenta las siguientes variables:</p>
+<ul>
+<li><strong>Condition (Variable objetivo):</strong>, indica si el producto es nuevo o usado)</li>
+<li><strong>Price:</strong> precio del producto</li>
+<li><strong>Listing_type_id:</strong> Tipo  de publicación para los artículos; toma los valores de free, silver, bronce, gold, gold_special, gold_premium y gold_pro</li>
+<li><strong>Automatic_relist:</strong> Reventa automática, toma los valores de 0 y 1</li>
+<li><strong>Status:</strong> Estado de la publicación, toma los valores: active, paused y closed</li>
+<li><strong>Available_quantity:</strong> Cantidad disponible</li>
+<li><strong>Initial_quantity:</strong> cantidad inicial</li>
+<li><strong>Sold_quantity:</strong> cantidad vendida</li>
+<li><strong>Count_seller_id:</strong> cantidad de articulos vendidos por cada seller_id</li>
+</ul>
+<h2 id="analisis-descriptivo">Análisis descriptivo</h2>
+<h3 id="variable-objetivo">Variable objetivo</h3>
+<p>Para entender la distribucion de productos nuevos y usados se tiene que el <strong>53% (53.755)</strong> de los productos son nuevos.</p>
+<p><img alt="Distribución de condición" src="../imgs/condition_bar.png" /></p>
+<h3 id="general">General</h3>
+<p>Realizar un análisis descriptivo es lo inicial que se recomendaría realizar para entender a primera vista la districión de las variables númericas.</p>
+<p>Para este análisis usar el método descriptivas() de la clase EDA; que se encuentra en el modulo eda.py</p>
+<pre><code class="language-python">instanciaEDA.descriptivas()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>price</th>
+<th>initial_quantity</th>
+<th>sold_quantity</th>
+<th>available_quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>99987.0</td>
+<td>99987.000000</td>
+<td>99987.000000</td>
+<td>99987.000000</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>5094.341</td>
+<td>34.997610</td>
+<td>2.397302</td>
+<td>34.746587</td>
+</tr>
+<tr>
+<td>std</td>
+<td>46069.000</td>
+<td>419.922783</td>
+<td>42.687843</td>
+<td>419.654162</td>
+</tr>
+<tr>
+<td>min</td>
+<td>0.84</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>90.0</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>250.0</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>800.0</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>2.000000</td>
+</tr>
+<tr>
+<td>max</td>
+<td>3956000.0</td>
+<td>9999.000000</td>
+<td>8676.000000</td>
+<td>9999.000000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agrupado">Agrupado</h3>
+<p>Debido a que nuestra variable objetivo es codición debemos de realizar un análisis con respecto a esta variable:</p>
+<h4 id="precio">Precio</h4>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>price Q1</th>
+<th>price Mediana</th>
+<th>price Promedio</th>
+<th>price Desviación</th>
+<th>price Q3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new</td>
+<td>140.0</td>
+<td>350.0</td>
+<td>3229.513445</td>
+<td>38653.606948</td>
+<td>999.0</td>
+</tr>
+<tr>
+<td>used</td>
+<td>65.0</td>
+<td>150.0</td>
+<td>7262.617919</td>
+<td>53330.463953</td>
+<td>550.0</td>
+</tr>
+</tbody>
+</table>
+<p>Se evidencia en general que el precio de los productos usados es mas bajo que el de los productos nuevos; aunque la media en los usados es mucho mas alta (7.262) esto es gracias a la alta dispersión de los datos; y para estos casos es mejor interpretar la mediana.</p>
+<p>El <strong>50%</strong> de los productos <strong>usados</strong> tiene un costo de hasta <strong>150</strong>, mientras que en los productos nuevos el <strong>50%</strong> es hasta de <strong>140</strong>.</p>
+<h4 id="cantidad-inicial">Cantidad Inicial</h4>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>initial_quantity Q1</th>
+<th>initial_quantity Mediana</th>
+<th>initial_quantity Promedio</th>
+<th>initial_quantity Desviación</th>
+<th>initial_quantity Q3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>63.555632</td>
+<td>570.486538</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>used</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.792546</td>
+<td>30.043514</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>50%</strong> de los productos nuevos se inician con hasta 2 productos, y en <strong>promedio</strong> la cantidad de productos con los que se inicia es <strong>63.5</strong>.</p>
+<p>El <strong>50%</strong> de los productos usados se inician con hasta 1 producto, y en <strong>promedio</strong> la cantidad de productos con los que se inicia es <strong>1.7</strong>.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
