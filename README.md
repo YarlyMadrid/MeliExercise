@@ -18,7 +18,8 @@ Data science project to predict whether a listed item is new or used
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── Documentacion      <- A default mkdocs project; see www.mkdocs.org for details
+│   MeliExercise
 │
 ├── models             <- Trained and serialized models, model predictions, or model summaries
 │

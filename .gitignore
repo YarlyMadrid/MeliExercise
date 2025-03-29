@@ -81,8 +81,7 @@ instance/
 .scrapy
 
 # MkDocs documentation
-docs/site/
-docs/
+
 
 # PyBuilder
 .pybuilder/
